@@ -1,0 +1,85 @@
+╔════════════════════════════════════════════════════════════════╗
+║     TeoMarket → Shopify PromoX Inventory Sync                  ║
+║     AUTOMATED 4X DAILY (06:00, 12:00, 18:00, 22:00 UTC)        ║
+╚════════════════════════════════════════════════════════════════╝
+
+✅ WHAT'S DONE:
+  • Sync script (sync.js) — paginated, smart matching
+  • GitHub Actions workflow (4x daily)
+  • .env template, package.json, documentation
+  • Git initialized & ready to push
+
+🚀 NEXT STEPS (5 minutes):
+
+1. CREATE GITHUB REPO
+   https://github.com/new
+   Name: teomarket-shopify-sync
+   Click: Create repository
+
+2. PUSH CODE
+   git remote add origin https://github.com/YOUR-USERNAME/teomarket-shopify-sync.git
+   git branch -M main
+   git push -u origin main
+
+3. GENERATE SHOPIFY TOKEN
+   https://z5jzfz-me.myshopify.com/admin/apps
+   → Develop apps
+   → Create an app: "Inventory Sync"
+   → Configuration → enable 3 scopes:
+      ☑ write_inventory
+      ☑ read_products
+      ☑ read_inventory
+   → Install app
+   → Admin API credentials → Reveal token
+   → COPY token
+
+4. ADD GITHUB SECRETS
+   Repo → Settings → Secrets and variables → Actions
+   Add 4 secrets:
+   
+   TEOMARKET_TOKEN
+   5fc16705d1e1c1119a7fe821b20a463226ff2ab311c7565c8ebb84337564165b
+   
+   SHOPIFY_STORE
+   z5jzfz-me.myshopify.com
+   
+   SHOPIFY_ACCESS_TOKEN
+   [paste from step 3]
+   
+   SHOPIFY_LOCATION_ID
+   125913629006
+
+5. TEST
+   Repo → Actions → TeoMarket workflow
+   Click: Run workflow
+   Wait 1-2 min for execution
+   Check logs for success
+
+✅ DONE!
+Sync runs automatically 4x daily.
+Or run manually from Actions tab anytime.
+
+📍 DOCS:
+- DEPLOY-CHECKLIST.md (detailed steps)
+- GITHUB-SETUP.md (screenshot guide)
+- SETUP.md (full documentation)
+- README.md (overview)
+
+🔐 SECURITY:
+- All credentials stored as GitHub Secrets
+- No secrets in code
+- Safe for public repo if needed
+
+⚙️ CUSTOMIZATION:
+Edit .github/workflows/sync.yml to change times:
+- cron: '0 6 * * *'    (06:00 UTC)
+- cron: '0 12 * * *'   (12:00 UTC)
+- cron: '0 18 * * *'   (18:00 UTC)
+- cron: '0 22 * * *'   (22:00 UTC)
+
+📊 MONITORING:
+- GitHub Actions logs (full details)
+- Check: Fetched products, matched variants, changes
+- Errors are logged with details
+
+✨ Ready? Start with step 1!
